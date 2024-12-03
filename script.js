@@ -1,16 +1,35 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const button = document.getElementById('changeColorBtn');
-    const container = document.querySelector('.container');
-    
-    const colors = [
-        '#ff9999', '#99ff99', '#9999ff',
-        '#ffff99', '#ff99ff', '#99ffff'
-    ];
-    
-    let currentColorIndex = 0;
-    
-    button.addEventListener('click', () => {
-        currentColorIndex = (currentColorIndex + 1) % colors.length;
-        container.style.backgroundColor = colors[currentColorIndex];
+    // Add smooth scroll behavior for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+
+    // Add navbar background color on scroll
+    const navbar = document.querySelector('.navbar');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            navbar.style.backgroundColor = 'rgba(10, 10, 10, 0.95)';
+        } else {
+            navbar.style.backgroundColor = 'rgba(10, 10, 10, 0.8)';
+        }
+    });
+
+    // Add click handlers for buttons (placeholder functionality)
+    const ctaButtons = document.querySelectorAll('.cta-btn');
+    const loginBtn = document.querySelector('.login-btn');
+
+    ctaButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            alert('Account creation feature coming soon!');
+        });
+    });
+
+    loginBtn.addEventListener('click', () => {
+        alert('Sign in feature coming soon!');
     });
 });
